@@ -1,0 +1,1999 @@
+/* FUENTE 1: Títulos */
+@font-face {
+    font-family: 'Priestacy';
+    src: url('fonts/Titles_Priestacy.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* FUENTE 2: Textos legibles */
+@font-face {
+    font-family: 'RougeScript';
+    src: url('fonts/Paragraph_RougeScript-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* FUENTE 3: Parrafos largos*/
+@font-face {
+    font-family: 'TheStoryline';
+    src: url('fonts/Paragraph_the_storyline.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HighSpirited';
+    src: url('fonts/High Spirited.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* FONDO GENERAL */
+body {
+    margin: 0;
+    background-image: url('img/S0_PageBckgr.webp');
+    background-attachment: fixed;
+    background-size: cover;
+    overflow-x: hidden; /* Evita que la página se desborde hacia los lados */
+}
+
+/* REGLAS BASE PARA SECCIONES Y CAPAS */
+.seccion {
+    position: relative;
+    width: 100%;
+}
+
+.capa {
+    position: absolute;
+    display: block;
+}
+
+/* =========================================
+   SECTION 1: WELCOME (Siempre por encima de S2)
+   ========================================= */
+#S1 {
+    z-index: 100;
+    height: 15%; /* Este alto pequeño permite que S2 se deslice justo debajo del papel superior */
+}
+
+.L1 { width: 100%; top: 0; left: 0; z-index: 80; } /* Capa Frontal */
+.L2 { width: 100%; top: 0; left: 0; z-index: 70; } /* Papel Superior */
+
+.contenedor-titulo {
+    width: 100%;
+    text-align: center;
+    top: 35%;
+    margin-top: 2%;
+    z-index: 75; /* Queda entre el borde L1 y el papel L2 */
+}
+
+.font-boda {
+    font-family: 'Priestacy', serif; /* Aquí la insertas */
+    font-size: clamp(3rem, 8vw, 8rem);
+    color: #4a3b32;
+    font-weight: normal;
+    margin: 0;
+}
+
+/* =========================================
+   SECTION 2: PORTADA / INTRODUCCIÓN
+   ========================================= */
+#S2 {
+    z-index: 50; 
+    height: 57.3vw; /* Le dimos 100px más de alto para que todo baje cómodamente */
+}
+
+/* L8 - Fondo Atardecer (BAJAMOS LA FOTO PARA DAR MÁS CIELO) */
+.L8 { 
+    width: 100%; 
+    top: 20%; /* Pasó de -50px a 10px. Esto baja la foto completa, liberando el cielo */
+    left: 0; 
+    z-index: 10; 
+}
+
+/* L7 - Papel inferior (LO BAJAMOS PARA DAR MÁS ESPACIO AL ATARDECER) */
+.contenedor-L7 {
+    width: 100%;
+    top: 42vw; /* Lo empujamos 100px más abajo para ampliar la vista del mar */
+    left: 0;
+    margin-top: 23%;
+    z-index: 20; 
+}
+.L7-img { width: 100%; display: block; }
+
+.texto-personalizado {
+    position: absolute;
+    top: 60%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 80%;
+    z-index: 25;
+}
+
+#invitado-nombre {
+    font-family: 'Priestacy', serif;
+    font-size: clamp(3rem, 6.2vw, 6.2rem);
+    color: #4a3b32;
+    font-weight: normal; /* <--- También aquí */
+}
+
+/* AQUÍ PEGAS EL NUEVO BLOQUE */
+#invitado-pases, .frase {
+    font-family: 'RougeScript', cursive;
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    color: #4a3b32;
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+.frase {
+    font-size: 1.5rem;
+    font-style: italic;
+}
+
+/* =========================================
+   INTERCAMBIO DE POLAROIDS L5 Y L6
+   ========================================= */
+
+/* L5 - Polaroid 1 (AHORA A LA DERECHA Y MÁS ABAJO) */
+.L5 { 
+    width: 33%; /* Un poquito más grande para equilibrar */
+    top: 45%; /* Bajó para acompañar al papel rasgado */
+    margin-top: 20%;
+    right: 12%; /* Se pegó a la derecha */
+    z-index: 40; 
+}
+
+/* L6 - Polaroid 2 (AHORA A LA IZQUIERDA Y MÁS ABAJO) */
+.L6 { 
+    width: 23%; 
+    top: 55%; /* Bajó para acompañar al papel rasgado */
+    left: 12%;  /* Se pegó a la izquierda */
+    margin-top: 20%;
+    z-index: 30; 
+}
+
+/* L4 - Corazones Abajo (Los bajamos con todo lo demás) */
+.L4 { 
+    width: 12%; 
+    top:110%; 
+    left: 10%; 
+    z-index: 50;
+}
+
+/* L3 - Corazones Arriba (MÁS GRANDES Y CENTRADOS) */
+.L3 { 
+    width: 45%; /* Pasaron de 18% a 25% para mayor impacto */
+    top: 50%; /* Los bajamos un poquito para que encajen en el nuevo cielo */
+    left: 47.5%; /* La mandamos exactamente a la mitad de la pantalla... */
+    transform: translateX(-50%); /* ...y este truco alinea el centro de la imagen con el centro de la pantalla */
+    z-index: 60; 
+}
+
+/* =========================================
+   SECTION 3: NOS CASAMOS (CORREGIDO)
+   ========================================= */
+#S3 {
+    position: relative;
+    z-index: 60; /* Subimos la sección completa para que no la tape el S2 */
+    height: 52vw;
+    margin-top: 65vw; /* La subimos más para que el marrón se meta bajo el papel de S2 */
+}
+
+/* L3 - El Fondo Marrón (Este debe ser el fondo de la S3) */
+.L3-marron {
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1; /* El más bajo de esta sección */
+}
+
+/* L1 - La Polaroid que faltaba (Ahora con Z-index alto) */
+.L1-polaroid-s3 {
+    width: 24%; /* Un poco más grande para que se note */
+    top: 15%; /* La subimos para que "pise" el final de la S2 */
+    left: 12%;
+    z-index: 100; /* POR ENCIMA DE TODO */
+    transform: rotate(-4deg);
+    transform: scale(160%);
+}
+
+/* L2 - Ilustración Pareja */
+.L2-pareja {
+    width: 23%;
+    bottom: -10%; /* La pegamos abajo a la derecha */
+    right: -4%;
+    z-index: 50;
+}
+
+/* TEXTO DE SECCIÓN 3 (Ajuste de tamaño) */
+.texto-s3 {
+    width: 50%;
+    top: 10%; 
+    right: 8%;
+    text-align: center;
+    z-index: 80;
+}
+
+.titulo-s3 {
+    font-family: 'Priestacy', serif;
+    font-size: 9vw;
+    color: #fdfaf6;
+    font-weight: normal;
+    top: -50%;
+    transform: translateX(10%);
+}
+
+.parrafo-s3 {
+    font-family: 'TheStoryline', sans-serif;
+    font-size: 4.8vw; /* Tamaño más legible */
+    color: #fdfaf6;
+    line-height: 1.3;
+    max-width: 90%;
+}
+
+/* --- CONTENEDOR PRINCIPAL S4 --- */
+.contenedor-lienzo-S4 {
+    position: relative;
+    width: 100%;
+    height: 104.16vw; /* Mantiene la proporción 1920x2000 */
+    overflow: hidden;
+    background-color: #fdfaf6; /* Color de respaldo */
+    margin-top: -5%;
+}
+
+/* Regla base para las imágenes de lienzo completo */
+.capa-S4 {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: block;
+    margin-top: -1vw;
+}
+
+/* --- CONFIGURACIÓN INDIVIDUAL DE CAPAS --- */
+
+.S4-L5 { z-index: 100; } /* Fondo */
+
+.S4-L4 { 
+    z-index: 101;
+    transform: translateY(4%);
+ } /* Polaroid 1 */
+
+.S4-L3 {
+     z-index: 108;
+     transform: translateY(5%);
+    } /* Polaroid 2 (Pisa a la 1) */
+
+.S4-L2 { z-index: 103; } /* Corazones Bott */
+
+.S4-L1 { z-index: 104; } /* Corazones Up (Frente) */
+
+/* --- CONTENEDOR GENERAL DEL TEXTO (S4) --- */
+/* Eliminamos el transform: scale que rompía la visualización en celulares */
+.texto-S4 {
+    position: absolute;
+    z-index: 105;
+    width: 40%;       /* Ocupa el ancho del papel dejando margen a los lados */
+    left: 5%;         /* Centrado horizontal elástico */
+    height: auto;     /* Crece de manera natural según el contenido */
+    margin-top: 18%;
+}
+
+/* --- PALANCA EXCLUSIVA PARA EL TÍTULO --- */
+.fuente-titulo-S4 {
+    position: relative; /* Te permite moverlo solo a él usando top/left si quieres */
+    font-family: 'Priestacy', serif;
+    font-size: 5.5vw;   /* Se escala matemáticamente con el ancho del celular */
+    color: #4a3b32;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 2%;  /* Separación proporcional respecto al párrafo */
+    
+    top: 20%;            /* <<< Modifica este % para subir o bajar SOLO el título */
+    width: 100%;
+}
+
+/* --- PALANCA EXCLUSIVA PARA EL PÁRRAFO --- */
+.fuente-parrafo-S4 {
+    position: relative; /* Totalmente independiente del título */
+    font-family: 'TheStoryline', sans-serif;
+    font-size: 4.5vw;   /* Escala fluida ideal para la caligrafía en móviles */
+    color: #4a3b32;
+    line-height: 1.4;
+    text-align: center;
+    
+    top: 0%;            /* <<< Modifica este % para subir o bajar SOLO el párrafo */
+}
+
+/* =========================================================================
+   SECTION 4: CONTADOR (CORAZONES SEPARADOS E INDEPENDIENTES)
+   ========================================================================= */
+.contenedor-lienzo-contador {
+    position: relative;
+    width: 100%;
+    height: 104.16vw; 
+    overflow: hidden;
+    background-color: #fdfaf6; 
+    z-index: 105; /* La caja contenedora es 105, su interior empieza en 106 */
+    margin-top: -10%; /* Juega con este valor para solapar la sección anterior */
+}
+
+/* Regla base para que todo el lienzo encaje */
+.capa-contador {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: block;
+}
+
+/* --- CONTROL INDIVIDUAL Y Z-INDEX (Tus capas de ilustración intactas) --- */
+.L8-fondo           { z-index: 106; }
+.L7-polaroid        { z-index: 107; opacity: 36%; transform: translateX(-15%); }
+.L6-calendario      { z-index: 108; transform: translateX(7%);}
+.L5-flores-bott     { z-index: 109; transform: translateY(0%);}
+.L3-flores-top      { z-index: 110; transform: translateY(5%); }
+.L2-corazon-bott    { z-index: 111; margin-bottom: 5%; transform: translateY(-3%); }
+
+
+/* --- TEXTOS SUPERIORES E INFERIORES (Z-INDEX SUPERIOR) --- */
+.texto-contador-top {
+    position: absolute;
+    z-index: 115;
+    width: 100%;
+    text-align: center;
+    top: 12%; /* <<< PALANCA: Mueve esto para acercar/alejar la frase de arriba */
+}
+
+.texto-contador-bottom {
+    position: absolute;
+    z-index: 115;
+    width: 100%;
+    text-align: center;
+    top: 55%; /* <<< PALANCA: Mueve esto para encajar debajo de los corazones */
+}
+
+.fuente-rouge-contador {
+    font-family: 'Priestacy', normal;
+    font-size: 9vw; /* En vw para que escale uniforme con la pantalla */
+    color: #8c5d41; 
+    font-weight: 100;
+}
+
+
+/* --- CONTENEDOR DE NÚMEROS (Junta y centra los corazones) --- */
+.contenedor-numeros {
+    position: absolute;
+    z-index: 120;
+    width: 100%;       /* Ocupa todo el ancho para poder centrar libremente */
+    top: 36%;          /* <<< PALANCA VERTICAL: Sube o baja los 3 corazones juntos */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    
+    justify-content: center; /* Junta los tres corazones en el centro exacto */
+    gap: 2%;                 /* <<< PALANCA DE SEPARACIÓN: Modifica este % para acercarlos o alejarlos sin que cambien de tamaño */
+}
+
+/* --- CADA CORAZÓN INDIVIDUAL (Caja contenedora interna) --- */
+.bloque-numero {
+    position: relative;
+    width: 22vw;             /* <<< PALANCA DE TAMAÑO: Modifica este valor para hacer los 3 corazones más grandes o pequeños de forma independiente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hace que cada imagen webp de corazón sea fluida */
+.img-corazon-veta {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Caja de textos superpuesta exactamente en el centro de cada corazón */
+.caja-texto-interno {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrado matemático vertical */
+    align-items: center;    /* Centrado matemático horizontal */
+    padding-bottom: 8%;     /* <<< PALANCA INTERNA: Ajusta este % si necesitas subir o bajar los números dentro de la forma del corazón */
+}
+
+
+/* --- NÚMEROS Y LABELS EN UNIDADES RESPONSIVAS --- */
+.numero-priestacy {
+    font-family: 'Priestacy', serif;
+    font-size: 5.5vw;       /* Escala fluida proporcional al tamaño del corazón */
+    color: #4a3b32; 
+    line-height: 1;
+}
+
+.label-rouge {
+    font-family: 'RougeScript', cursive;
+    font-size: 2.5vw;       /* Escala fluida para móviles */
+    color: #4a3b32;
+    margin-top: -5%;        /* Acerca proporcionalmente la palabra al número */
+}
+
+/* =========================================
+   SECTION 5: UBICACIÓN
+   ========================================= */
+.contenedor-lienzo-ubicacion {
+    position: relative;
+    width: 100%;
+    height: 104.16vw; /* Mantiene la proporción 1920x2000 del lienzo completo */
+    overflow: hidden;
+    z-index: 200; /* Lo subimos para que acople bien sobre el countdown si usas márgenes negativos */
+    margin-top: -5%; 
+}
+
+/* Regla base para las imágenes del lienzo completo */
+.capa-ubicacion {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: block;
+}
+
+/* --- CONTROL INDIVIDUAL DE CAPAS Y Z-INDEX --- */
+.S5-L6 { z-index: 201; } /* Fondo Marrón */
+.S5-L5 { z-index: 202; } /* Corazón izquierda */
+.S5-L4 { z-index: 203; } /* Corazones derecha */
+.S5-L3 { z-index: 204; } /* Zapato de Hombre */
+.S5-L2 { z-index: 205; } /* Zapato de Mujer */
+
+
+/* --- TEXTOS SOBREPUESTOS (FUENTES ESPECÍFICAS) --- */
+.bloque-textos-ubicacion {
+    position: absolute;
+    z-index: 210;
+    width: 100%;
+    text-align: center;
+    top: 45%; /* Muévelo verticalmente desde aquí para encajar con tu diseño */
+}
+
+.lugar-titulo-priestacy {
+    font-family: 'Priestacy', serif;
+    font-size: 8vw;
+    color: #fffaf1; /* Color claro para contrastar sobre el fondo marrón */
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+}
+
+.lugar-direccion-rouge {
+    font-family: 'RougeScript', cursive;
+    font-size: 4vw;
+    color: #dfcfbe; /* Tono crema suave */
+    margin: 0;
+    margin-top: 3%;
+}
+
+
+/* --- BOTÓN DE UBICACIÓN INTERACTIVO CON ANIMACIONES --- */
+.boton-maps-link {
+    position: absolute;
+    z-index: 215; /* Por encima de los zapatos y el fondo */
+    
+    /* Coordenadas para ubicar el icono pequeño en la pantalla */
+    top: 35%; 
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1); /* Centrado exacto */
+    
+    display: inline-block;
+    cursor: pointer;
+    
+    /* Transición suave para que la animación no sea brusca */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+
+/* Imagen interna del icono (para que puedas controlar su tamaño) */
+.S5-L1-icono {
+    width: 16vw; /* Ajusta el tamaño de tu icono desde aquí */
+    height: auto;
+    display: block;
+}
+
+/* 1. ANIMACIÓN HOVER: Se vuelve un poquito grande al pasar el cursor */
+.boton-maps-link:hover {
+    /* Mantiene el centrado (-50%) pero escala a 1.12 (un 12% más grande) */
+    transform: translate(-50%, -50%) scale(1.12); 
+    filter: drop-shadow(0px 8px 15px rgba(0,0,0,0.3)); /* Añade una sombra suave al flotar */
+}
+
+/* 2. ANIMACIÓN ACTIVE: Efecto de botón presionado (se encoge) al hacer clic */
+.boton-maps-link:active {
+    transform: translate(-50%, -50%) scale(0.95); 
+    filter: drop-shadow(0px 2px 5px rgba(0,0,0,0.2));
+}
+
+/* =========================================
+   SECTION 6: DRESS CODE
+   ========================================= */
+.contenedor-lienzo-dress-code {
+    position: relative;
+    width: 100%;
+    height: 104.16vw; /* Proporción 1920x2000 */
+    overflow: hidden;
+    background-color: transparent; /* Totalmente transparente para que ensamble limpio */
+    z-index: 240; /* Un piso por encima de la ubicación */
+    margin-top: -10%; /* Juega con esto para solapar sutilmente con la sección anterior */
+}
+
+/* Regla base para las capas de lienzo completo */
+.capa-dress-code {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: block;
+}
+
+/* --- ORDEN DE APILAMIENTO FIJO (Z-INDEX) --- */
+.S6-L6 { z-index: 251; } /* Fondo Beige */
+.S6-L5 { 
+    z-index: 252;
+    opacity: 40%; } /* Polaroid */
+.S6-L1-texto { z-index: 253; } /* Capa de texto artístico */
+
+
+/* --- COMPORTAMIENTO COMÚN DE LOS BOTONES --- */
+.boton-dress-code {
+    position: absolute;
+    z-index: 260; /* Por encima de todos los fondos y textos */
+    display: inline-block;
+    cursor: pointer;
+    /* Misma transición de rebote elástico que el icono de ubicación */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+
+/* Imagen interna del botón para heredar el tamaño */
+.boton-dress-code img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ANIMACIÓN 1: Se agranda un 12% al pasar el cursor encima */
+.boton-dress-code:hover {
+    transform: translate(-50%, -50%) scale(1.12);
+    filter: drop-shadow(0px 8px 15px rgba(0,0,0,0.25));
+}
+
+/* ANIMACIÓN 2: Se contrae un poco al hacer clic (efecto pulsación) */
+.boton-dress-code:active {
+    transform: translate(-50%, -50%) scale(0.95);
+    filter: drop-shadow(0px 3px 6px rgba(0,0,0,0.15));
+}
+
+
+/* --- CONTROL INDIVIDUAL: UBICACIÓN Y TAMAÑO --- */
+
+/* L2: Vestido de Mujer */
+.S6-L2-vestido {
+    width: 19vw; /* <--- Modifica aquí el tamaño de la ilustración */
+    top: 23%;     /* <--- Mueve verticalmente */
+    left: 70%;    /* <--- Mueve horizontalmente */
+    transform: translate(-50%, -50%) scale(1); /* Mantiene el centro del eje para la animación */
+}
+
+/* L3: Traje de Hombre */
+.S6-L3-traje {
+    width: 21vw; /* <--- Modifica aquí el tamaño de la ilustración */
+    top: 42%;     /* <--- Mueve verticalmente */
+    left: 38%;    /* <--- Mueve horizontalmente */
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* L4: Paleta de Colores */
+.S6-L4-paleta {
+    width: 26vw; /* <--- Modifica aquí el tamaño de la ilustración */
+    top: 72%;     /* <--- Mueve verticalmente */
+    left: 73%;    /* <--- Centrado horizontalmente */
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* =========================================================================
+   SECTION 7: LISTA DE REGALOS (ESTILOS Y LIENZO PRINCIPAL)
+   ========================================================================= */
+.contenedor-lienzo-regalos {
+    position: relative;
+    width: 100%;
+    height: 104.16vw; /* Proporción estricta 1920x2000 del lienzo completo */
+    overflow: hidden;
+    background-color: transparent;
+    z-index: 240; 
+    margin-top: -5%; 
+}
+
+/* El lienzo de fondo ocupará todo el espacio real del contenedor sin cortarse */
+.S7-L5-fondo { 
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    top: 0;
+    left: 0;
+    z-index: 301; 
+}
+
+/* --- TEXTOS INFORMATIVOS (CON FUENTE NUEVA, MÁS GRANDES Y SIN SUPERPOSICIÓN) --- */
+.texto-regalo-material {
+    position: absolute;
+    z-index: 310;
+    width: 45%;
+    left: 5%;
+    top: 3%; /* Modifica aquí para subir o bajar este primer texto */
+    text-align: center;
+    font-family: 'TheStoryline', sans-serif;
+    font-size: 3.8vw; 
+    color: #4a3b32;
+    line-height: 1.4;
+}
+
+.texto-regalo-economico {
+    position: absolute;
+    z-index: 310;
+    width: 50%;
+    left: 47%;
+    top: 52%; /* Modifica aquí para subir o bajar este segundo texto */
+    text-align: center;
+    font-family: 'TheStoryline', sans-serif;
+    font-size: 3.8vw; 
+    color: #F2E7DC;
+    line-height: 1.4;
+}
+
+/* --- CLASE BASE COMÚN PARA LOS DOS BOTONES ILUSTRADOS --- */
+.boton-ilustracion-regalo {
+    position: absolute; 
+    z-index: 315; 
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.boton-ilustracion-regalo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.boton-ilustracion-regalo:hover {
+    transform: translate(-50%, -50%) scale(1.07);
+    filter: drop-shadow(0px 8px 15px rgba(0,0,0,0.2));
+}
+
+.boton-ilustracion-regalo:active {
+    transform: translate(-50%, -50%) scale(0.96);
+}
+
+/* --- CONTROL INDIVIDUAL: BOTONES PRINCIPALES DE APERTURA --- */
+.S7-L3-btn-lista {
+    width: 25vw; 
+    top: 32%;     
+    left: 55%;    
+    transform: translate(-50%, -50%) scale(1); 
+}
+
+.S7-L4-btn-dinero {
+    width: 20vw; 
+    top: 85%;     
+    left: 77%;    
+    transform: translate(-50%, -50%) scale(1); 
+}
+
+
+/* =========================================================================
+     VENTANAS EMERGENTES (MODALES COMPLETAMENTE FLUIDOS Y DESGLOSADOS)
+   ========================================================================= */
+
+/* Fondo oscuro translúcido con scroll general permitido */
+.overlay-modal {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65); 
+    z-index: 5000; 
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    overflow-y: auto; 
+    padding: 0 0; 
+    box-sizing: border-box;
+}
+
+/* --- CONTENEDOR BASE DE LA TARJETA MARRÓN --- */
+.ventana-modal-contenido {
+    position: relative;
+    background: transparent; 
+    width: 140vw; 
+    height: auto; 
+    padding: 0;
+    overflow: visible; /* Evita que la equis y botones se corten */
+    box-shadow: none;
+    margin: auto; 
+    animation: emergerVentana 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+}
+
+/* MARCOS DE ANCHO DE TUS MENÚS */
+.cont-marco-regalos { max-width: 110vw; } 
+.cont-marco-pago    { max-width: 100vw; } 
+
+@keyframes emergerVentana {
+    from { transform: scale(0.85); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Ilustración base del marco */
+.titulo-imagen-modal {
+    display: block;
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 2010;
+}
+
+/* CLASE BASE PARA LAS EQUIS DE CIERRE */
+.btn-cerrar-modal {
+    position: absolute;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 5vw; 
+    z-index: 2020;
+    transition: transform 0.2s ease;
+}
+
+.btn-cerrar-modal img { width: 100%; height: auto; display: block; }
+.btn-cerrar-modal:active { transform: scale(0.9); }
+
+
+/* =========================================================================
+     A. CALIBRACIÓN INDEPENDIENTE: VENTANA LISTA DE REGALOS
+   ========================================================================= */
+
+/* Tu equis fija para la ventana de regalos */
+.cont-marco-regalos .btn-cerrar-modal {
+    top: 12vw;    
+    right: 14vw;  
+}
+
+/* Cuadro beige central con scroll de regalos */
+.cuadro-registro-regalos {
+    position: absolute;
+    top: 21vw; 
+    left: 25%;
+    width: 50%;
+    height: 50vw; 
+    background: transparent !important; 
+    overflow-y: auto; 
+    padding: 5vw;
+    box-sizing: border-box;
+    z-index: 2015;
+    text-align: center;
+}
+
+.cuadro-registro-regalos ul { 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+    margin-top: 0vw;
+    text-align: center; /* Asegura el centrado de los elementos de la lista */
+}
+.cuadro-registro-regalos li {
+    padding: 1vw;
+    color: #4a3b32;
+    font-family: Arial, sans-serif;
+    font-size: 1.1rem;
+    border-bottom: 0vw dashed rgba(74, 59, 50, 0.25);
+}
+
+.cargando-regalos {
+    text-align: center;
+    font-family: 'TheStoryline', sans-serif;
+    font-size: 3vw;
+    color: #4a3b32 !important;
+    padding-top: 1vw !important;
+    border: none !important;
+}
+
+/* --- FORMULARIO DESGLOSADO DE REGALOS --- */
+.formulario-modal-regalos {
+    position: absolute;
+    top: -2.5vw;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2015;
+}
+
+/* BLOQUE 1: Daré un regalo de la lista */
+.txt-sugerido {
+    position: absolute;
+    left: 26.5%;
+    top: 86.5vw; /* Palanca de texto */
+    font-family: 'TheStoryline', sans-serif;
+    font-size: 4vw; 
+    color: #fffaf2; 
+}
+
+.barra-sugerido {
+    position: absolute;
+    left: 26.5%;
+    width: 46.7vw;
+    top: 87.5vw; /* Palanca de input */
+    height: 10vw;
+    background: transparent !important;
+}
+
+/* BLOQUE 2: Daré un regalo diferente */
+.txt-libre {
+    position: absolute;
+    left: 26.5%;
+    top: 96.3vw; /* Palanca de texto */
+    font-family: 'TheStoryline', sans-serif;
+    font-size: 4vw; 
+    color: #fffaf2; 
+}
+
+.barra-libre {
+    position: absolute;
+    left: 27%;
+    width: 47%;
+    top: 97.5vw; /* Palanca de input */
+    height: 10vw;
+    background: transparent !important;
+}
+
+/* Campos nativos invisibles */
+.select-modal-regalos, .input-modal-texto {
+    width: 100%;
+    height: 100%;
+    background: transparent !important; 
+    border: none !important; 
+    outline: none !important;
+    color: #4a3b32;
+    font-family: Arial, sans-serif;
+    font-size: 1.1rem;
+    padding: 0 8px;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* Botón Añadir Regalo (Madera) */
+.btn-submit-regalo-img {
+    position: absolute;
+    top: 106.2vw; 
+    left: 50%;
+    transform: translateX(-50%);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    width: 30vw; 
+    z-index: 2015;
+    transition: transform 0.2s ease;
+}
+
+.btn-submit-regalo-img img { width: 100%; height: auto; display: block; }
+
+.texto-interno-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'TheStoryline', sans-serif;
+    font-size: 4vw;
+    color: #fffaf2;
+    width: 100%;
+    text-align: center;
+    pointer-events: none; 
+}
+
+.btn-submit-regalo-img:active { transform: translateX(-50%) scale(0.96); }
+
+
+/* =========================================================================
+     B. CALIBRACIÓN INDEPENDIENTE: VENTANA DATOS DE PAGO (1000px)
+   ========================================================================= */
+
+/* <<< PALANCA: EQUIS DE LA VENTANA DE PAGO >>> */
+.cont-marco-pago .btn-cerrar-modal {
+    top: 22vw;     /* Modifica de forma aislada para situar la X en el marco de pago */
+    right: 15vw;   
+}
+
+/* <<< PALANCA: CONTENEDOR DE CUENTAS BANCARIAS >>> */
+.cuadro-datos-bancarios {
+    position: absolute;
+    top: 34%;      /* Sube o baja el bloque de datos completo */
+    left: 20%;     /* Mueve a la izquierda o derecha para centrar */
+    width: 70%;    /* Controla el ancho útil del texto */
+    height: 62%;   /* Altura máxima de la caja de scroll de transferencias */
+    background: transparent !important; 
+    overflow-y: auto; 
+    padding: 5%;
+    box-sizing: border-box;
+    z-index: 2015;
+}
+
+/* Estilos de formato de cuentas */
+.cuadro-datos-bancarios .bloque-cuenta {
+    margin-bottom: 1.4rem;
+    font-family: Arial, sans-serif;
+}
+
+.cuadro-datos-bancarios h4 {
+    margin: 0 0 0.3rem 0;
+    color: #8c6c53;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+.cuadro-datos-bancarios p {
+    margin: 0;
+    color: #4a3b32;
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+
+/* --- SECTOR CLASE GENERAL OCULTAR --- */
+.rsvp-oculto {
+    display: none !important;
+    opacity: 0;
+}
+
+/* =========================================================================
+   SECTION 8: RSVP (ESTILOS GENERALES DEL LIENZO PRINCIPAL)
+   ========================================================================= */
+.contenedor-lienzo-rsvp {
+    position: relative;
+    width: 100%;
+    height: 104.16vw; 
+    overflow: hidden;
+    background-color: transparent;
+    z-index: 250;
+}
+
+.S8-L9-fondo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    z-index: 301;
+}
+
+/* Pregunta en el lienzo nocturno utilizando la nueva fuente caligráfica oscura */
+.txt-pregunta-asistencia-principal {
+    position: absolute;
+    left: 25%;
+    top: 25%; /* <<< PALANCA: Sube o baja la pregunta principal */
+    width: 50%;
+    text-align: center;
+    font-family: 'HighSpirited', sans-serif;
+    font-size: 7rem; 
+    color: #4a3b32;  
+    transform: scale(140%);  
+    z-index: 310;
+}
+
+/* <<< PALANCA: TEXTO DE RECORDATORIO FIJADO EN EL PIE DEL LIENZO >>> */
+.texto-recordatorio-fecha {
+    position: absolute;
+    z-index: 310;
+    width: 80%;
+    left: 10%;
+    bottom: 5%; 
+    text-align: center;
+    font-family: 'TheStoryline', sans-serif;
+    font-size: 3rem;
+    color: #4a3b32;
+    line-height: 1.3;
+}
+
+
+/* =========================================================================
+     PALANCAS DE MOVIMIENTO CONJUNTO: CONTENEDORES DE BOTÓN + TEXTO
+   ========================================================================= */
+.contenedor-boton-rsvp {
+    position: absolute;
+    z-index: 315;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem; 
+    width: 180px; 
+}
+
+/* <<< PALANCAS DE COORDENADAS DE LOS BOTONES YES Y NO >>> */
+#grupo-rsvp-yes {
+    top: 65%;  
+    left: 25%;
+    transform: scale(130%); 
+}
+
+#grupo-rsvp-no {
+    top: 65%;  
+    left: 60%; 
+    transform: scale(130%);
+}
+
+.btn-principal-rsvp {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    width: 100%;
+    transition: transform 0.2s ease;
+}
+.btn-principal-rsvp img { width: 100%; height: auto; display: block; }
+.btn-principal-rsvp:hover { transform: scale(1.06); }
+
+/* Etiquetas de texto debajo de los botones principales */
+.etiqueta-boton-rsvp {
+    font-family: 'TheStoryline', sans-serif;
+    font-size: 2.4rem;
+    color: #4a3b32;
+    text-align: center;
+    white-space: nowrap;
+}
+
+
+/* =========================================================================
+     MODALES INTERNOS (OVERLAYS Y CAPAS DE ENFOQUE)
+   ========================================================================= */
+.overlay-modal-rsvp {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65); 
+    z-index: 3000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: auto;
+    padding: 30px 0;
+    box-sizing: border-box;
+}
+
+.ventana-modal-rsvp {
+    position: relative;
+    background: transparent;
+    width: 94%;
+    height: auto;
+    padding: 0;
+    margin: auto;
+    animation: emergerRsvp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+}
+
+@keyframes emergerRsvp {
+    from { transform: scale(0.88); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.imagen-marco-rsvp {
+    display: block;
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 3005;
+}
+
+.cont-marco-formulario { max-width: 1100px; } 
+
+/* <<< PALANCA EXCLUSIVA: Cambia este tamaño para ajustar el cuadro del menú de rechazo >>> */
+.cont-marco-rechazo    { max-width: 82%; }  
+.cont-marco-alerta     { max-width: 650x; }  
+
+/* Botones de cierre (Equis) */
+.btn-equis-rsvp {
+    position: absolute;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    width: 40px;
+    z-index: 3030;
+    transition: transform 0.2s ease;
+}
+.btn-equis-rsvp img { width: 100%; height: auto; display: block; }
+
+.cont-marco-formulario #btn-cerrar-rsvp-form { top: 50px; right: 110px; }
+.equis-alerta-nvelb { top: 480px; right: 230px; transform: scale(80%); opacity: 80%; }
+
+
+
+/* =========================================================================
+     BOTÓN DE TRANSMISIÓN DE ZOOM (DENTRO DEL CARTEL DE NO ASISTIRÉ)
+   ========================================================================= */
+.imagen-marco-rsvp-rej {
+    margin-top: -10%;
+    width: 80vw;
+    object-position: center;
+    right: 10%;
+    clip-path: inset(0% 0% 0% 0%);
+
+}
+
+.equis-alerta-rej   { top: 17%; right: 22%; transform: scale(80%); }
+
+.S8-L1-btn-zoom {
+    position: absolute;
+    z-index: 3020; 
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    width: 17vw; 
+    top: 48%; /* <<< PALANCA VERTICAL INTERNA DEL BOTÓN ZOOM */    
+    left: 63%;    
+    transform: translateX(-50%);
+    transition: transform 0.2s ease;
+}
+
+.S8-L1-btn-zoom:hover { transform: translateX(-50%) scale(1.05); }
+.S8-L1-btn-zoom img { width: 100%; height: auto; display: block; }
+
+.texto-btn-zoom {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'TheStoryline', sans-serif;
+    font-size: 2.4rem;
+    color: #fffaf200;
+    width: 100%;
+    text-align: center;
+    pointer-events: none;
+}
+
+/* =========================================================================
+     PALANCAS DE TEXTOS EXCLUSIVOS DEL CARTEL DE RECHAZO (ZOOM)
+   ========================================================================= */
+.txt-rechazo-lamento {
+    position: absolute;
+    font-family: 'TheStoryline', sans-serif;
+    font-size: 3.8rem;
+    color: #fffaf2;          /* Tono Beige Claro Principal */
+    width: 50%;
+    left: 25%;
+    text-align: center;
+    z-index: 3025;
+    
+    top: 18%;                /* <<< PALANCA VERTICAL TEXTO 1 */
+}
+
+.txt-rechazo-invitacion-zoom {
+    position: absolute;
+    font-family: 'TheStoryline', sans-serif;
+    font-size: 3.5rem;
+    color: #8C593B;          /* Blanco Roto / Dorado Suave en Contraste */
+    width: 30%;
+    left: 22%;
+    text-align: center;
+    z-index: 3025;
+    
+    top: 43%;                /* <<< PALANCA VERTICAL TEXTO 2 */
+}
+
+
+/* =========================================================================
+     CRISTAL INTERACTIVO: LOGICA Y TEXTOS DE LAS PREGUNTAS DEL PERGAMINO
+   ========================================================================= */
+.formulario-interactivo-rsvp {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3020;
+}
+
+/* === PALANCAS DE TEXTOS INDEPENDIENTES (BEIGE CLARO LEGIBLE) === */
+.titulo-campo-rsvp {
+    position: absolute;
+    font-family: 'TheStoryline', sans-serif;
+    font-size: 2.2rem;       
+    color: #fffaf2;          /* Tono beige claro de alta legibilidad */
+    white-space: nowrap;
+    pointer-events: none;    
+    z-index: 3025;
+}
+
+/* Ajusta de forma aislada la coordenada vertical de cada pregunta */
+.q-nombre    { top: 15%;  left: 30%; }
+.q-pases     { top: 27%; left: 30%; }
+.q-vehiculo  { top: 38.9%; left: 30%; }
+.q-hospedaje { top: 51.5%; left: 30%; }
+.q-alergias  { top: 63%; left: 30%; }
+
+
+/* === PALANCAS DE RECUADROS INTERACTIVOS EN TU LUGAR EXACTO === */
+.bloque-input-rsvp {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    background: transparent !important;
+    z-index: 3020;
+}
+
+.campo-nombre    { top: 18.5%;  left: 30%; width: 70%; height: 38px; }
+.campo-pases     { top: 30.7%;  left: 30%; width: 70%; height: 38px; }
+.campo-vehiculo  { top: 42.7%;  left: 30%; width: 70%; height: 38px; }
+.campo-hospedaje { top: 55%;    left: 30%; width: 70%; height: 38px; }
+.campo-alergias  { top: 66.8%;  left: 30%; width: 70%; height: 38px; }
+
+/* Texto que se escribe dentro de los controles transparentes */
+.input-nativo-rsvp, .select-nativo-rsvp {
+    width: 57.5%;
+    height: 100%;
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    color: #4a3b32; 
+    font-family: Arial, sans-serif;
+    font-size: 1.15rem;
+    padding: 0 10px;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+.select-nativo-rsvp { cursor: pointer; }
+
+
+/* =========================================================================
+     ANIMACIÓN SUTIL DEL BOTÓN CONFIRMAR DE MADERA FINAL (S8_L5)
+   ========================================================================= */
+.S8-L5-btn-confirmar {
+    position: absolute;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    width: 35%; 
+    top: 78%;   
+    left: 50%;
+    transform: translateX(-50%) scale(1);
+    transition: transform 0.25s ease, filter 0.25s ease; 
+    z-index: 3025;
+}
+
+/* Al pasar el cursor: Efecto de iluminación y crecimiento discreto */
+.S8-L5-btn-confirmar:hover {
+    transform: translateX(-50%) scale(1.02);
+    filter: brightness(1.06);
+}
+
+/* Al hacer click: Efecto de hundimiento físico sutil */
+.S8-L5-btn-confirmar:active {
+    transform: translateX(-50%) scale(0.98);
+    filter: brightness(0.96);
+}
+
+.S8-L5-btn-confirmar img { width: 100%; height: auto; display: block; }
+
+.texto-btn-confirmar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'TheStoryline', sans-serif;
+    font-size: 2.6rem;
+    color: #fffaf2;
+    width: 100%;
+    text-align: center;
+    pointer-events: none;
+}
+
+/* UTILIDADES */
+.rsvp-oculto { display: none !important; opacity: 0; }
+
+/* =========================================================================
+   SECTION 9: CANVAS DE CIERRE (CORREGIDO PARA 1920px)
+   ========================================================================= */
+.contenedor-lienzo-cierre {
+    position: relative;
+    width: 100%;
+    height: 104.16vw; /* Exactamente la misma proporción de tu RSVP */
+    overflow: hidden;
+    background-color: transparent;
+    z-index: 240;
+    margin-top: -1vw;
+}
+
+.S9-L2-fondo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    z-index: 301;
+}
+
+/* <<< TEXTO DE AGRADECIMIENTO >>> */
+.txt-agradecimiento-cierre {
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    text-align: center;
+    font-family: 'HighSpirited', sans-serif;
+    font-size: 6rem; /* Aumentado para que destaque bien en el ancho */
+    color: #8C593B;    
+    z-index: 310;
+    top: 25%;
+}
+
+/* <<< BOTÓN INTERACTIVO DE LA CÁMARA >>> */
+.S9-L1-btn-camara-cierre {
+    position: absolute;
+    z-index: 315;
+    display: block;
+    cursor: pointer;
+    
+    width: 25vw; /* <<< Tamaño mucho más grande y proporcionado */
+    left: 50%;
+    top: 50%; 
+    transform: translate(-50%, -50%); /* Centrado perfecto sobre su eje */
+    transition: transform 0.2s ease;
+}
+
+.S9-L1-btn-camara-cierre img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Animaciones de la cámara */
+.S9-L1-btn-camara-cierre:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+}
+.S9-L1-btn-camara-cierre:active {
+    transform: translate(-50%, -50%) scale(0.97);
+}
+
+/* =========================================================================
+  DISEÑO RESPONSIVO
+   ========================================================================= */
+@media (max-width: 768px) {
+    
+    /* Reducimos el tamaño base de la fuente. 
+       Esto hará que TODOS tus textos (preguntas, botones, recordatorios) 
+       se encojan automáticamente como si hicieran zoom hacia atrás. */
+    html {
+        font-size: 10px; /* Puedes bajarlo a 8px si aún lo ves muy grande */
+    }
+
+/* =========================================================================
+   SECTION 4: CONTADOR (VERSIÓN MÓVIL)
+   ========================================================================= */
+.contenedor-lienzo-contador {
+    margin-top: -10%;
+}
+
+/* Regla base para que todo el lienzo encaje */
+.capa-contador {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: block;
+}
+
+.L7-polaroid        { z-index: 300;; transform: translateY(-15%); left: -10%;}
+.L6-calendario      { left: 10vw; top: 8%; transform: scale(80%); }
+.L5-flores-bott     { transform: scale(70%); left: -15vw; ;top: 13vw;}
+.L3-flores-top      { transform: scale(70%); left: 15vw; top: -15vw;}
+.L2-corazon-bott    { z-index: 111; margin-bottom: 0%; transform: scale(80%); top: 5vw;}
+
+
+/* --- TEXTOS SUPERIORES E INFERIORES (Z-INDEX SUPERIOR) --- */
+.texto-contador-top {
+    width: 100%;
+    top: 7%; /* <<< PALANCA: Mueve esto para acercar/alejar la frase de arriba */
+}
+
+.texto-contador-bottom {
+    width: 100%;
+    top: 52%; /* <<< PALANCA: Mueve esto para encajar debajo de los corazones */
+}
+
+.fuente-rouge-contador {
+    font-family: 'Priestacy', normal;
+    font-size: 12vw; /* En vw para que escale uniforme con la pantalla */
+    color: #8c5d41; 
+    font-weight: 100;
+}
+
+
+/* --- CONTENEDOR DE NÚMEROS (Junta y centra los corazones) --- */
+.contenedor-numeros {
+    position: absolute;
+    z-index: 120;
+    width: 100%;       /* Ocupa todo el ancho para poder centrar libremente */
+    top: 36%;          /* <<< PALANCA VERTICAL: Sube o baja los 3 corazones juntos */
+    left: 0%;
+    right: 50%;
+    display: flex;
+    transform: scale(130%);
+    
+    justify-content: center; /* Junta los tres corazones en el centro exacto */
+    gap: 0%;                 /* <<< PALANCA DE SEPARACIÓN: Modifica este % para acercarlos o alejarlos sin que cambien de tamaño */
+}
+
+/* --- CADA CORAZÓN INDIVIDUAL (Caja contenedora interna) --- */
+.bloque-numero {
+    position: relative;
+    width: 22vw;             /* <<< PALANCA DE TAMAÑO: Modifica este valor para hacer los 3 corazones más grandes o pequeños de forma independiente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hace que cada imagen webp de corazón sea fluida */
+.img-corazon-veta {
+    width: 100%;
+}
+
+/* Caja de textos superpuesta exactamente en el centro de cada corazón */
+.caja-texto-interno {
+    padding-bottom: 8%;     /* <<< PALANCA INTERNA: Ajusta este % si necesitas subir o bajar los números dentro de la forma del corazón */
+}
+
+
+/* --- NÚMEROS Y LABELS EN UNIDADES RESPONSIVAS --- */
+.numero-priestacy {
+    font-family: 'Priestacy', serif;
+    font-size: 7vw;       /* Escala fluida proporcional al tamaño del corazón */
+    color: #4a3b32; 
+    line-height: 1;
+}
+
+.label-rouge {
+    font-family: 'RougeScript', cursive;
+    font-size: 2.8vw;       /* Escala fluida para móviles */
+    color: #4a3b32;
+    margin-top: -5%;        /* Acerca proporcionalmente la palabra al número */
+}
+
+/* =========================================
+   SECTION 5: UBICACIÓN
+   ========================================= */
+.contenedor-lienzo-ubicacion {
+    position: relative;
+    width: 100%;
+    height: 104.16vw;
+    margin-top: -2%; 
+}
+
+/* --- CONTROL INDIVIDUAL DE CAPAS */
+.S5-L5 { z-index: 202; } /* Corazón izquierda */
+.S5-L4 { z-index: 203; } /* Corazones derecha */
+.S5-L3 { z-index: 204; } /* Zapato de Hombre */
+.S5-L2 { z-index: 205; } /* Zapato de Mujer */
+
+
+/* --- TEXTOS SOBREPUESTOS (FUENTES ESPECÍFICAS) --- */
+.bloque-textos-ubicacion {
+    position: absolute;
+    z-index: 210;
+    width: 100%;
+    text-align: center;
+    top: 45%; /* Muévelo verticalmente desde aquí para encajar con tu diseño */
+}
+
+.lugar-titulo-priestacy {
+    font-family: 'Priestacy', serif;
+    font-size: 8vw;
+    color: #fffaf1; /* Color claro para contrastar sobre el fondo marrón */
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+}
+
+.lugar-direccion-rouge {
+    font-family: 'TheStoryline', sans-serif;
+    font-size: 5vw;
+    color: #dfcfbe; /* Tono crema suave */
+    margin: 0;
+    margin-top: 3%;
+}
+
+.S5-L1-icono {
+    width: 16vw; /* Ajusta el tamaño de tu icono desde aquí */
+}
+
+/* =========================================================================
+   SECTION 7: LISTA DE REGALOS (ESTILOS Y LIENZO PRINCIPAL)
+   ========================================================================= */
+.contenedor-lienzo-regalos {
+    width: 100%;
+    height: 104.16vw; /* Proporción estricta 1920x2000 del lienzo completo */
+    margin-top: -5%; 
+}
+
+/* El lienzo de fondo ocupará todo el espacio real del contenedor sin cortarse */
+.S7-L5-fondo { 
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    top: 0;
+    left: 0;
+    z-index: 301; 
+}
+
+/* --- TEXTOS INFORMATIVOS (CON FUENTE NUEVA, MÁS GRANDES Y SIN SUPERPOSICIÓN) --- */
+.texto-regalo-material {
+    width: 45%;
+    left: 5%;
+    top: -6%; /* Modifica aquí para subir o bajar este primer texto */
+    text-align: center;
+    font-family: 'TheStoryline', sans-serif;
+    font-size: 5vw; 
+    line-height: 1.4;
+}
+
+.texto-regalo-economico {
+    width: 50%;
+    left: 47%;
+    top: 44%; /* Modifica aquí para subir o bajar este segundo texto */
+    text-align: center;
+    font-family: 'TheStoryline', sans-serif;
+    font-size: 5vw; 
+    line-height: 1.4;
+}
+
+/* =========================================================================
+     VENTANAS EMERGENTES (MODALES COMPLETAMENTE FLUIDOS Y DESGLOSADOS)
+   ========================================================================= */
+
+
+/* --- CONTENEDOR BASE DE LA TARJETA MARRÓN --- */
+.ventana-modal-contenido {
+    position: relative;
+    background: transparent; 
+    width: 140vw; 
+    height: auto; 
+    padding: 0;
+    overflow: visible; /* Evita que la equis y botones se corten */
+    box-shadow: none;
+    margin: auto; 
+    animation: emergerVentana 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+}
+
+/* MARCOS DE ANCHO DE TUS MENÚS */
+.cont-marco-regalos { max-width: 110vw; transform: scale(126%); right: -1vw ;} 
+.cont-marco-pago    { max-width: 150vw; transform: scale(120%); } 
+
+
+/* Ilustración base del marco */
+.titulo-imagen-modal {
+    display: block;
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+/* =========================================================================
+    VENTANA LISTA DE REGALOS
+   ========================================================================= */
+
+/* Tu equis fija para la ventana de regalos */
+.cont-marco-regalos .btn-cerrar-modal {
+    top: 13vw;    
+    right: 15vw; 
+    transform: scale(150%); 
+}
+
+/* Cuadro beige central con scroll de regalos */
+.cuadro-registro-regalos {
+    position: absolute;
+    top: 21vw; 
+    left: 25%;
+    width: 50%;
+    height: 50vw;  
+    overflow-y: auto; 
+    padding: 5vw;
+    box-sizing: border-box;
+}
+
+.cuadro-registro-regalos ul { 
+    margin-top: 2vw;
+    text-align: center; /* Asegura el centrado de los elementos de la lista */
+}
+.cuadro-registro-regalos li {
+    color: #4a3b32;
+    font-family: Arial, sans-serif;
+    font-size: 1.1rem;
+    border-bottom: 1px dashed rgba(74, 59, 50, 0.25);
+}
+
+.cargando-regalos {
+    text-align: center;
+    font-family: 'TheStoryline', sans-serif;
+    font-size: 3vw;
+    color: #4a3b32 !important;
+    padding-top: 4rem !important;
+    border: none !important;
+}
+
+/* --- FORMULARIO DESGLOSADO DE REGALOS --- */
+.formulario-modal-regalos {
+    position: absolute;
+    top: 5vw;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2015;
+}
+
+/* BLOQUE 1: Daré un regalo de la lista */
+.txt-sugerido {
+    position: absolute;
+    left: 26.5%;
+    top: 82vw; /* Palanca de texto */
+    font-family: 'TheStoryline', sans-serif;
+    font-size: 5.5vw; 
+    color: #fffaf2; 
+}
+
+.barra-sugerido {
+    position: absolute;
+    left: 26.5%;
+    width: 50vw;
+    top: 85vw; /* Palanca de input */
+    height: 10vw;
+}
+
+/* BLOQUE 2: Daré un regalo diferente */
+.txt-libre {
+    position: absolute;
+    left: 26.5%;
+    top: 92.5vw; /* Palanca de texto */
+    font-family: 'TheStoryline', sans-serif;
+    font-size: 5.5vw; 
+    color: #fffaf2; 
+}
+
+.barra-libre {
+    position: absolute;
+    left: 26.5%;
+    width: 47%;
+    top: 95vw; /* Palanca de input */
+    height: 10vw;
+    background: transparent !important;
+}
+
+/* Campos nativos invisibles */
+.select-modal-regalos, .input-modal-texto {
+    width: 100%;
+    font-family: Arial, sans-serif;
+    font-size: 1.1rem;
+    padding: 0 8px;
+    box-sizing: border-box;
+}
+
+/* Botón Añadir Regalo (Madera) */
+.btn-submit-regalo-img {
+    top: 104vw; 
+    left: 50%;
+    width: 30vw;
+}
+
+.btn-submit-regalo-img img { width: 100%; height: auto; display: block; }
+
+.texto-interno-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'TheStoryline', sans-serif;
+    font-size: 4vw;
+    color: #fffaf2;
+    width: 100%;
+    text-align: center;
+    pointer-events: none; 
+}
+
+
+
+/* =========================================================================
+    VENTANA DATOS DE PAGO
+   ========================================================================= */
+
+/* <<< PALANCA: EQUIS DE LA VENTANA DE PAGO >>> */
+.cont-marco-pago .btn-cerrar-modal {
+    top: 24vw;     /* Modifica de forma aislada para situar la X en el marco de pago */
+    right: 15vw;
+    transform: scale(120%);  
+}
+
+/* <<< PALANCA: CONTENEDOR DE CUENTAS BANCARIAS >>> */
+.cuadro-datos-bancarios {
+    position: absolute;
+    top: 34%;      /* Sube o baja el bloque de datos completo */
+    left: 20%;     /* Mueve a la izquierda o derecha para centrar */
+    width: 70%;    /* Controla el ancho útil del texto */
+    height: 62%;   /* Altura máxima de la caja de scroll de transferencias */
+    padding: 5%;
+}
+
+/* Estilos de formato de cuentas */
+.cuadro-datos-bancarios .bloque-cuenta {
+    margin-bottom: 1.4rem;
+    font-family: Arial, sans-serif;
+}
+
+.cuadro-datos-bancarios h4 {
+    margin: 0 0 0.3rem 0;
+    color: #8c6c53;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+.cuadro-datos-bancarios p {
+    margin: 0;
+    color: #4a3b32;
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+
+
+  /* =========================================================================
+   SECTION 8: RSVP (RESPONSIVE)
+   ========================================================================= */
+.contenedor-lienzo-rsvp {
+    width: 100%;
+    height: 104.16vw; 
+    overflow: hidden;
+    max-width: 100vw;
+}
+
+
+.txt-pregunta-asistencia-principal {
+    left: 25%;
+    top: 15%; 
+    width: 50%;
+    font-size: 4vw; 
+    transform: scale(100%);
+    font-weight: normal;
+
+}
+
+/* <<< PALANCA: TEXTO DE RECORDATORIO FIJADO EN EL PIE DEL LIENZO >>> */
+.texto-recordatorio-fecha {
+    width: 90%;
+    left: 3%;
+    bottom: 2%;
+    font-size: 6vw;
+    line-height: 1.3;
+}
+
+
+/* =========================================================================
+     PALANCAS DE MOVIMIENTO CONJUNTO: CONTENEDORES DE BOTÓN + TEXTO
+   ========================================================================= */
+
+#grupo-rsvp-yes {
+    top: 61%;  
+    left: 30%;
+    transform: scale(100%); 
+}
+
+#grupo-rsvp-no {
+    top: 61%;  
+    left: 55%; 
+    transform: scale(100%);
+}
+
+.etiqueta-boton-rsvp {
+    font-size: 6vw;
+    opacity: 0%;
+}
+
+
+/* =========================================================================
+     MODALES INTERNOS (OVERLAYS Y CAPAS DE ENFOQUE)
+   ========================================================================= */
+
+.ventana-modal-rsvp {
+    position: relative;
+    background: transparent;
+    width: 94%;
+    height: auto;
+    padding: 0;
+    margin: auto;
+}
+
+@keyframes emergerRsvp {
+    from { transform: scale(0.88); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.imagen-marco-rsvp {
+    width: 100%;
+    overflow: hidden;
+    transform: scale(200%);
+    clip-path: inset(0% 0% 0% 0%);
+}
+
+.cont-marco-formulario { max-width: none; } 
+
+/* <<< PALANCA EXCLUSIVA: Cambia este tamaño para ajustar el cuadro del menú de rechazo >>> */
+.cont-marco-rechazo    { max-width: none; }  
+.cont-marco-alerta     { max-width: none; }  
+
+/* Botones de cierre (Equis) */
+.btn-equis-rsvp {
+    width: 6%;
+}
+
+.cont-marco-formulario #btn-cerrar-rsvp-form { top: -40%; right: 1vw; }
+.equis-alerta-nvelb { top: 23%; right: -1%; transform: scale(80%); opacity: 80%; }
+
+
+/* =========================================================================
+    NO ASISTIRÉ (BOTÓN DE TRANSMISIÓN DE ZOOM)
+   ========================================================================= */
+
+.imagen-marco-rsvp-rej {
+    width: 160vw;
+    transform: translateX(-20.5%);
+    clip-path: inset(0% 0% 0% 0%);
+}
+
+.equis-alerta-rej   { top: 20%; right: 5vw; transform: scale(90%); }
+
+.S8-L1-btn-zoom {
+  
+    cursor: pointer;
+    width: 25vw; 
+    top: 52%; /* <<< PALANCA VERTICAL INTERNA DEL BOTÓN ZOOM */    
+    left: 78%;    
+    transition: transform 0.2s ease;
+}
+
+
+/* =========================================================================
+     PALANCAS DE TEXTOS EXCLUSIVOS DEL CARTEL DE RECHAZO (ZOOM)
+   ========================================================================= */
+.txt-rechazo-lamento {
+    font-family: 'TheStoryline', sans-serif;
+    font-size: 4rem;
+    width: 65%;
+    left: 15vw;
+    text-align: center;
+    top: 22vw;                /* <<< PALANCA VERTICAL TEXTO 1 */
+}
+
+.txt-rechazo-invitacion-zoom {
+    font-size: 3.5rem;
+    width: 55%;
+    left: 7%;
+    top: 67vw;                /* <<< PALANCA VERTICAL TEXTO 2 */
+}
+
+
+/* =========================================================================
+     CRISTAL INTERACTIVO: LOGICA Y TEXTOS DE LAS PREGUNTAS DEL PERGAMINO
+   ========================================================================= */
+.formulario-interactivo-rsvp {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+}
+
+/* === PALANCAS DE TEXTOS INDEPENDIENTES (BEIGE CLARO LEGIBLE) === */
+.titulo-campo-rsvp {
+    position: absolute;
+    font-family: 'TheStoryline', sans-serif;
+    font-size: 8.5vw;       
+
+ 
+}
+
+/* Ajusta de forma aislada la coordenada vertical de cada pregunta */
+.q-nombre    { top: -22%;  left: 10%; }
+.q-pases     { top: 2%; left: 10%; }
+.q-vehiculo  { top: 25%; left: 10%; }
+.q-hospedaje { top: 50%; left: 10%; }
+.q-alergias  { top: 73%; left: 10%; }
+
+
+.campo-nombre    { top: -15%;  left: 13%; width: 70%; }
+.campo-pases     { top: 9%;  left: 13%; width: 70%; }
+.campo-vehiculo  { top: 33%;  left: 13%; width: 70%; }
+.campo-hospedaje { top: 58%;    left: 13%; width: 70%; }
+.campo-alergias  { top: 82%;  left: 13%; width: 70%; }
+
+/* Texto que se escribe dentro de los controles transparentes */
+.input-nativo-rsvp, .select-nativo-rsvp {
+    width: 100%;
+    height: 100%;
+    color: #4a3b32; 
+    font-family: Arial, sans-serif;
+    font-size: 2rem;
+    padding: 0vw;
+
+}
+
+
+/* =========================================================================
+     ANIMACIÓN SUTIL DEL BOTÓN CONFIRMAR DE MADERA FINAL (S8_L5)
+   ========================================================================= */
+.S8-L5-btn-confirmar {
+    position: absolute;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    width: 70%; 
+    top: 102%;   
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform 0.25s ease, filter 0.25s ease; 
+    z-index: 3025;
+}
+
+
+.S8-L5-btn-confirmar img { width: 100%; height: auto; display: block; }
+
+.texto-btn-confirmar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'TheStoryline', sans-serif;
+    font-size: 3.2rem;
+    color: #fffaf2;
+    width: 100%;
+    text-align: center;
+    pointer-events: none;
+}
+
+
+
+    /* Botón de la cámara de la última sección */
+    .S9-L1-btn-camara-cierre {
+        width: 40%;
+        top: 70%;
+    }
+    
+    /* Botones de Sí / No de la Sección 8 */
+    .contenedor-boton-rsvp {
+        width: 22%; 
+    }
+    #grupo-rsvp-yes { left: 20%; }
+    #grupo-rsvp-no  { left: 60%; }
+
+    /* Ajuste para que los textos en el celular sigan siendo legibles */
+    .txt-pregunta-asistencia-principal { font-size: 5rem; width: 90%; left: 5%; }
+    .txt-agradecimiento-cierre { font-size: 4.5rem; width: 90%; left: 5%; }
+}
