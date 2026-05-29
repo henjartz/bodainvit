@@ -140,26 +140,26 @@ body {
 /* L5 - Polaroid 1 (AHORA A LA DERECHA Y MÁS ABAJO) */
 .L5 { 
     width: 33%; /* Un poquito más grande para equilibrar */
-    top: 45%; /* Bajó para acompañar al papel rasgado */
+    top: 44%; /* Bajó para acompañar al papel rasgado */
     margin-top: 20%;
-    right: 12%; /* Se pegó a la derecha */
+    right: 10%; /* Se pegó a la derecha */
     z-index: 40; 
 }
 
 /* L6 - Polaroid 2 (AHORA A LA IZQUIERDA Y MÁS ABAJO) */
 .L6 { 
-    width: 23%; 
-    top: 55%; /* Bajó para acompañar al papel rasgado */
-    left: 12%;  /* Se pegó a la izquierda */
+    width: 28%; 
+    top: 48%; /* Bajó para acompañar al papel rasgado */
+    left: 8%;  /* Se pegó a la izquierda */
     margin-top: 20%;
     z-index: 30; 
 }
 
 /* L4 - Corazones Abajo (Los bajamos con todo lo demás) */
 .L4 { 
-    width: 12%; 
+    width: 15%; 
     top:110%; 
-    left: 10%; 
+    left: 5%; 
     z-index: 50;
 }
 
@@ -1105,7 +1105,7 @@ body {
 
 /* <<< PALANCA EXCLUSIVA: Cambia este tamaño para ajustar el cuadro del menú de rechazo >>> */
 .cont-marco-rechazo    { max-width: 82%; }  
-.cont-marco-alerta     { max-width: 650x; }  
+.cont-marco-     { max-width: 650x; }  
 
 /* Botones de cierre (Equis) */
 .btn-equis-rsvp {
@@ -1307,6 +1307,8 @@ body {
     text-align: center;
     pointer-events: none;
 }
+
+
 
 /* UTILIDADES */
 .rsvp-oculto { display: none !important; opacity: 0; }
@@ -1845,7 +1847,7 @@ body {
 
 /* <<< PALANCA EXCLUSIVA: Cambia este tamaño para ajustar el cuadro del menú de rechazo >>> */
 .cont-marco-rechazo    { max-width: none; }  
-.cont-marco-alerta     { max-width: none; }  
+.cont-marco-alerta     { max-width: none; transform: scale(80); }  
 
 /* Botones de cierre (Equis) */
 .btn-equis-rsvp {
@@ -1995,5 +1997,5 @@ body {
 
     /* Ajuste para que los textos en el celular sigan siendo legibles */
     .txt-pregunta-asistencia-principal { font-size: 5rem; width: 90%; left: 5%; }
-    .txt-agradecimiento-cierre { font-size: 4.5rem; width: 90%; left: 5%; }
+    .txt-agradecimiento-cierre { font-size: 4.5rem; width: 80%; left: 10vw; top: 20vw ;}
 }
